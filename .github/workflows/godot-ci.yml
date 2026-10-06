@@ -1,0 +1,49 @@
+name: Godot CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: 4.7.2
+
+jobs:
+  test:
+    name: Import and headless play test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Godot
+        id: cache-godot
+        uses: actions/cache@v4
+        with:
+          path: ~/godot
+          key: godot-${{ env.GODOT_VERSION }}-linux
+
+      - name: Download Godot ${{ env.GODOT_VERSION }}
+        if: steps.cache-godot.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/godot
+          curl -fsSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q godot.zip -d ~/godot
+          mv ~/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64 ~/godot/godot
+          chmod +x ~/godot/godot
+
+      - name: Import project
+        run: ~/godot/godot --headless --path . --import 2>&1 | tee import.log
+
+      - name: Headless play test
+        run: |
+          set -o pipefail
+          ~/godot/godot --headless --path . res://tests/ci_test.tscn 2>&1 | tee test.log
+
+      - name: Fail on script errors
+        run: |
+          if grep -E "SCRIPT ERROR|Parse Error|Failed to load script|Cannot load source code" import.log test.log; then
+            echo "::error::Godot reported script errors"
+            exit 1
+          fi

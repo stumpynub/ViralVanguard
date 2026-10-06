@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3]
-
-[ext_resource type="Shader" path="res://assets/shaders/crate.gdshader" id="1_crate"]
-
-[resource]
-shader = ExtResource("1_crate")
-shader_parameter/tint = Color(0.658824, 0.784314, 0.815686, 1)
-shader_parameter/glow_color = Color(0.129412, 0.901961, 1, 1)
-shader_parameter/glow_strength = 1.3
