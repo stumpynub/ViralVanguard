@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="1_weapon_data"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/burst.tscn" id="2_burst"]
+[ext_resource type="Texture2D" path="res://assets/icons/weapon_burst.svg" id="3_weapon_burst"]
+
+[resource]
+script = ExtResource("1_weapon_data")
+id = "burst"
+display_name = "Fang-3 Burst Rifle"
+short_name = "FANG-3"
+weapon_class = "Burst"
+description = "Three-round bursts with tight grouping and heavy hits."
+carry = "Compressed ready"
+reload_name = "Side-mag slap"
+model_scene = ExtResource("2_burst")
+icon = ExtResource("3_weapon_burst")
+color = Color(1, 0.239216, 0.352941, 1)
+damage = 28
+fire_interval = 0.38
+magazine = 24
+reload_time = 1.5
+pellets = 1
+spread = 0.003
+recoil = 0.01
+kick = 0.005
+block_break = 0.9
+max_range = 85
+fire_mode = "ads"
+ads_time = 0.22
+ads_zoom = 0.22
+scoped = false
+sight_height = 0.135
+brass = 1
+burst_count = 3
+spin_up = 0
+move_multiplier = 1
+pierce = false
+explosion_radius = 0
+chill_time = 0
+gravity_well_time = 0
+chain_jumps = 0

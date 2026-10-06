@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/tinted_prop.gd" id="1_tinted_prop"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+resource_local_to_scene = true
+albedo_color = Color(0.352941, 0.039216, 0.290196, 1)
+roughness = 0.8
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_3"]
+size = Vector3(1, 0.04, 1.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4"]
+size = Vector3(1, 0.06, 0.06)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.168627, 0.839216, 1)
+emission_enabled = true
+emission = Color(1, 0.168627, 0.839216, 1)
+emission_energy_multiplier = 2.4
+
+[node name="Awning" type="Node3D"]
+script = ExtResource("1_tinted_prop")
+paint = Color(0.352941, 0.039216, 0.290196, 1)
+glow = Color(1, 0.168627, 0.839216, 1)
+paint_targets = Array[NodePath]([NodePath("Canvas")])
+glow_targets = Array[NodePath]([NodePath("Edge")])
+
+[node name="Canvas" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 0.913089, -0.40776, 0, 0.40776, 0.913089, 0, 0, 0.7)
+material_override = SubResource("StandardMaterial3D_2")
+
+[node name="Edge" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33, 1.45)
+material_override = SubResource("StandardMaterial3D_5")
+cast_shadow = 0

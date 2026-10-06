@@ -1,0 +1,200 @@
+[gd_scene load_steps=19 format=3]
+
+[ext_resource type="Script" path="res://scripts/weapons/weapon_model.gd" id="1_weapon_model"]
+[ext_resource type="PackedScene" path="res://assets/placeholder/models/sniper.glb" id="2_sniper"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3"]
+albedo_color = Color(0.164706, 0.164706, 0.180392, 1)
+metallic = 0.9
+roughness = 0.32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4"]
+albedo_color = Color(0.047059, 0.047059, 0.054902, 1)
+metallic = 0.6
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5"]
+albedo_color = Color(0.721569, 0.529412, 0.227451, 1)
+metallic = 1
+roughness = 0.25
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6"]
+top_radius = 0.006
+bottom_radius = 0.007
+height = 0.07
+radial_segments = 10
+
+[sub_resource type="SphereMesh" id="SphereMesh_7"]
+radius = 0.014
+height = 0.028
+radial_segments = 12
+rings = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_8"]
+size = Vector3(0.012, 0.004, 0.07)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_9"]
+top_radius = 0.0045
+bottom_radius = 0.006
+height = 0.07
+radial_segments = 8
+
+[sub_resource type="Gradient" id="Gradient_10"]
+offsets = PackedFloat32Array(0, 0.1, 0.35, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.85, 0.75, 0.9, 1, 0.3, 0.2, 0.25, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_11"]
+gradient = SubResource("Gradient_10")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+width = 64
+height = 64
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+billboard_mode = 1
+no_depth_test = false
+albedo_color = Color(1, 0.25, 0.18, 0.9)
+albedo_texture = SubResource("GradientTexture2D_11")
+
+[sub_resource type="QuadMesh" id="QuadMesh_13"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_14"]
+offsets = PackedFloat32Array(0, 0.18, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.92, 0.75, 0.9, 1, 0.55, 0.2, 0.25, 1, 0.3, 0.1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_15"]
+gradient = SubResource("Gradient_14")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+width = 64
+height = 64
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+cull_mode = 2
+albedo_color = Color(1, 0.815686, 0.627451, 0.85)
+albedo_texture = SubResource("GradientTexture2D_15")
+
+[sub_resource type="QuadMesh" id="QuadMesh_17"]
+size = Vector2(0.34, 0.34)
+
+[sub_resource type="QuadMesh" id="QuadMesh_18"]
+size = Vector2(0.6, 0.12)
+
+[node name="Sniper" type="Node3D" node_paths=PackedStringArray("grip_hand", "support_hand", "muzzle", "flash", "flash_light")]
+script = ExtResource("1_weapon_model")
+weapon_id = "sniper"
+grip_hand = NodePath("GripHand")
+support_hand = NodePath("SupportHand")
+muzzle = NodePath("Muzzle")
+flash = NodePath("Flash")
+flash_light = NodePath("FlashLight")
+
+[node name="Model" parent="." instance=ExtResource("2_sniper")]
+transform = Transform3D(-1.15, 0, 0, 0, 1.15, 0, 0, 0, -1.15, 0, 0.092, 0.1725)
+
+[node name="Bolt" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034, 0.175, 0.045)
+
+[node name="Handle" type="MeshInstance3D" parent="Bolt"]
+transform = Transform3D(0.362358, 0.932039, 0, -0.932039, 0.362358, 0, 0, 0, 1, -0.03, -0.012, 0)
+mesh = SubResource("CylinderMesh_6")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="Knob" type="MeshInstance3D" parent="Bolt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062, -0.026, 0)
+mesh = SubResource("SphereMesh_7")
+material_override = SubResource("StandardMaterial3D_4")
+
+[node name="BoltHand" type="Marker3D" parent="Bolt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, -0.035, -0.03)
+
+[node name="Eject" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0.19, 0.085)
+
+[node name="ScopeEye" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2645, 0.08)
+
+[node name="Clip" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.215, 0.085)
+visible = false
+
+[node name="Strip" type="MeshInstance3D" parent="Clip"]
+mesh = SubResource("BoxMesh_8")
+material_override = SubResource("StandardMaterial3D_3")
+
+[node name="Round" type="MeshInstance3D" parent="Clip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036, -0.028)
+mesh = SubResource("CylinderMesh_9")
+material_override = SubResource("StandardMaterial3D_5")
+
+[node name="Round2" type="MeshInstance3D" parent="Clip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036, -0.014)
+mesh = SubResource("CylinderMesh_9")
+material_override = SubResource("StandardMaterial3D_5")
+
+[node name="Round3" type="MeshInstance3D" parent="Clip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036, 0)
+mesh = SubResource("CylinderMesh_9")
+material_override = SubResource("StandardMaterial3D_5")
+
+[node name="Round4" type="MeshInstance3D" parent="Clip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036, 0.014)
+mesh = SubResource("CylinderMesh_9")
+material_override = SubResource("StandardMaterial3D_5")
+
+[node name="Round5" type="MeshInstance3D" parent="Clip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036, 0.028)
+mesh = SubResource("CylinderMesh_9")
+material_override = SubResource("StandardMaterial3D_5")
+
+[node name="Glint" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2645, 0.27)
+mesh = SubResource("QuadMesh_13")
+material_override = SubResource("StandardMaterial3D_12")
+visible = false
+cast_shadow = 0
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1645, 0.75)
+
+[node name="Flash" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1645, 0.79)
+visible = false
+
+[node name="FlashFace" type="MeshInstance3D" parent="Flash"]
+mesh = SubResource("QuadMesh_17")
+material_override = SubResource("StandardMaterial3D_16")
+cast_shadow = 0
+
+[node name="FlashSide" type="MeshInstance3D" parent="Flash"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0.26)
+mesh = SubResource("QuadMesh_18")
+material_override = SubResource("StandardMaterial3D_16")
+cast_shadow = 0
+
+[node name="FlashSide2" type="MeshInstance3D" parent="Flash"]
+transform = Transform3D(0, 0, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0.26)
+mesh = SubResource("QuadMesh_18")
+material_override = SubResource("StandardMaterial3D_16")
+cast_shadow = 0
+
+[node name="FlashLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1645, 0.9)
+light_color = Color(1, 0.690196, 0.439216, 1)
+light_energy = 0
+omni_range = 14
+
+[node name="GripHand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015, -0.06)
+
+[node name="SupportHand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.05, 0.23)

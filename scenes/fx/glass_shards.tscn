@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/fx/one_shot_fx.gd" id="1_one_shot_fx"]
+[ext_resource type="Material" path="res://assets/materials/fx_glow_particle.tres" id="6_fx_glow_part"]
+
+[sub_resource type="Gradient" id="Gradient_2"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0.9, 1, 1, 1, 0.6, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3"]
+gradient = SubResource("Gradient_2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4"]
+emission_shape = 3
+emission_box_extents = Vector3(0.05, 2.4, 2.5)
+direction = Vector3(1, 0.3, 0)
+spread = 180
+initial_velocity_min = 0.5
+initial_velocity_max = 3
+gravity = Vector3(0, -26, 0)
+color = Color(0.74902, 0.917647, 1, 1)
+color_ramp = SubResource("GradientTexture1D_3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5"]
+size = Vector2(0.07, 0.07)
+
+[node name="GlassShards" type="Node3D"]
+script = ExtResource("1_one_shot_fx")
+lifetime = 2.4
+
+[node name="Shards" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 220
+lifetime = 2.2
+one_shot = true
+explosiveness = 1
+process_material = SubResource("ParticleProcessMaterial_4")
+draw_pass_1 = SubResource("QuadMesh_5")
+material_override = ExtResource("6_fx_glow_part")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)

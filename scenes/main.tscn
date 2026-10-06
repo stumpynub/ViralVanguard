@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hangar.tscn" id="2_hangar"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="4_pause_menu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/end_screen.tscn" id="5_end_screen"]
+[ext_resource type="PackedScene" path="res://scenes/ui/deploy_cinematic.tscn" id="6_deploy_cinem"]
+
+[node name="Main" type="Node" node_paths=PackedStringArray("hangar", "hangar_layer", "hud", "pause_menu", "end_screen", "world", "cinematic")]
+process_mode = 3
+script = ExtResource("1_main")
+hangar = NodePath("HangarLayer/Hangar")
+hangar_layer = NodePath("HangarLayer")
+hud = NodePath("HUD")
+pause_menu = NodePath("PauseMenu")
+end_screen = NodePath("EndScreen")
+world = NodePath("World")
+cinematic = NodePath("DeployCinematic")
+
+[node name="World" type="Node3D" parent="."]
+process_mode = 1
+
+[node name="HangarLayer" type="CanvasLayer" parent="."]
+
+[node name="Hangar" parent="HangarLayer" instance=ExtResource("2_hangar")]
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+process_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_pause_menu")]
+
+[node name="EndScreen" parent="." instance=ExtResource("5_end_screen")]
+
+[node name="DeployCinematic" parent="." instance=ExtResource("6_deploy_cinem")]

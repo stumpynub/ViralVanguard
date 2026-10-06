@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/spacecraft.gd" id="1_spacecraft"]
+[ext_resource type="PackedScene" path="res://assets/models/vehicles/ship.glb" id="2_ship"]
+[ext_resource type="Shader" path="res://assets/shaders/light_pool.gdshader" id="5_light_pool"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3"]
+size = Vector3(3.4, 2.2, 5.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4"]
+size = Vector3(6.7, 2, 1.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6"]
+resource_local_to_scene = true
+shader = ExtResource("5_light_pool")
+shader_parameter/color = Color(1, 0.603922, 0.235294, 1)
+shader_parameter/strength = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_7"]
+size = Vector2(8.4, 8.4)
+orientation = 1
+
+[node name="Spacecraft" type="Node3D"]
+script = ExtResource("1_spacecraft")
+
+[node name="Model" parent="." instance=ExtResource("2_ship")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
+
+[node name="Hull" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Hull"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 1.1, 0)
+shape = SubResource("BoxShape3D_3")
+
+[node name="Fins" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Fins"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, 1, 0)
+shape = SubResource("BoxShape3D_4")
+
+[node name="Pool" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+material_override = SubResource("ShaderMaterial_6")
+cast_shadow = 0

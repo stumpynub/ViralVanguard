@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="1_skill_data"]
+[ext_resource type="Texture2D" path="res://assets/icons/skill_nanite.svg" id="2_skill_nanite"]
+
+[resource]
+script = ExtResource("1_skill_data")
+id = "nanite"
+display_name = "Nanite Surge"
+short_name = "HEAL"
+cooldown = 12
+color = Color(0.239216, 1, 0.603922, 1)
+description = "Restore 50 health instantly."
+icon = ExtResource("2_skill_nanite")

@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="GameDatabase" load_steps=31 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/game_database.gd" id="1_game_databas"]
+[ext_resource type="Resource" path="res://data/weapons/pulse.tres" id="2_pulse"]
+[ext_resource type="Resource" path="res://data/weapons/scatter.tres" id="3_scatter"]
+[ext_resource type="Resource" path="res://data/weapons/rail.tres" id="4_rail"]
+[ext_resource type="Resource" path="res://data/weapons/sniper.tres" id="5_sniper"]
+[ext_resource type="Resource" path="res://data/weapons/smg.tres" id="6_smg"]
+[ext_resource type="Resource" path="res://data/weapons/arc.tres" id="7_arc"]
+[ext_resource type="Resource" path="res://data/weapons/ion.tres" id="8_ion"]
+[ext_resource type="Resource" path="res://data/weapons/cryo.tres" id="9_cryo"]
+[ext_resource type="Resource" path="res://data/weapons/void.tres" id="10_void"]
+[ext_resource type="Resource" path="res://data/weapons/burst.tres" id="11_burst"]
+[ext_resource type="Resource" path="res://data/weapons/chain.tres" id="12_chain"]
+[ext_resource type="Resource" path="res://data/armors/recon.tres" id="13_recon"]
+[ext_resource type="Resource" path="res://data/armors/vanguard.tres" id="14_vanguard"]
+[ext_resource type="Resource" path="res://data/armors/jugg.tres" id="15_jugg"]
+[ext_resource type="Resource" path="res://data/armors/specter.tres" id="16_specter"]
+[ext_resource type="Resource" path="res://data/armors/medic.tres" id="17_medic"]
+[ext_resource type="Resource" path="res://data/armors/eng.tres" id="18_eng"]
+[ext_resource type="Resource" path="res://data/armors/mk2.tres" id="19_mk2"]
+[ext_resource type="Resource" path="res://data/armors/mk3.tres" id="20_mk3"]
+[ext_resource type="Resource" path="res://data/armors/mk4.tres" id="21_mk4"]
+[ext_resource type="Resource" path="res://data/skills/dash.tres" id="22_dash"]
+[ext_resource type="Resource" path="res://data/skills/shield.tres" id="23_shield"]
+[ext_resource type="Resource" path="res://data/skills/drone.tres" id="24_drone"]
+[ext_resource type="Resource" path="res://data/skills/chrono.tres" id="25_chrono"]
+[ext_resource type="Resource" path="res://data/skills/nanite.tres" id="26_nanite"]
+[ext_resource type="Resource" path="res://data/skills/grapple.tres" id="27_grapple"]
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="28_weapon_data"]
+[ext_resource type="Script" path="res://scripts/data/armor_data.gd" id="29_armor_data"]
+[ext_resource type="Script" path="res://scripts/data/skill_data.gd" id="30_skill_data"]
+
+[resource]
+script = ExtResource("1_game_databas")
+weapons = Array[ExtResource("28_weapon_data")]([ExtResource("2_pulse"), ExtResource("3_scatter"), ExtResource("4_rail"), ExtResource("5_sniper"), ExtResource("6_smg"), ExtResource("7_arc"), ExtResource("8_ion"), ExtResource("9_cryo"), ExtResource("10_void"), ExtResource("11_burst"), ExtResource("12_chain")])
+armors = Array[ExtResource("29_armor_data")]([ExtResource("13_recon"), ExtResource("14_vanguard"), ExtResource("15_jugg"), ExtResource("16_specter"), ExtResource("17_medic"), ExtResource("18_eng"), ExtResource("19_mk2"), ExtResource("20_mk3"), ExtResource("21_mk4")])
+skills = Array[ExtResource("30_skill_data")]([ExtResource("22_dash"), ExtResource("23_shield"), ExtResource("24_drone"), ExtResource("25_chrono"), ExtResource("26_nanite"), ExtResource("27_grapple")])

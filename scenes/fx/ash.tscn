@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/fx/one_shot_fx.gd" id="1_one_shot_fx"]
+[ext_resource type="Material" path="res://assets/materials/fx_glow_particle.tres" id="3_fx_glow_part"]
+[ext_resource type="Material" path="res://assets/materials/fx_smoke_particle.tres" id="8_fx_smoke_par"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2"]
+size = Vector2(0.06, 0.06)
+
+[sub_resource type="Gradient" id="Gradient_4"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5"]
+gradient = SubResource("Gradient_4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6"]
+direction = Vector3(0, 1, 0)
+spread = 60
+initial_velocity_min = 0.3
+initial_velocity_max = 1.6
+gravity = Vector3(0, 1.1, 0)
+scale_min = 0.5
+scale_max = 1.4
+color = Color(1, 0.478431, 0.188235, 1)
+damping_min = 0.6
+damping_max = 0.6
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.5, 1)
+color_ramp = SubResource("GradientTexture1D_5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7"]
+size = Vector2(0.7, 0.7)
+
+[sub_resource type="Gradient" id="Gradient_9"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_10"]
+gradient = SubResource("Gradient_9")
+
+[sub_resource type="Curve" id="Curve_11"]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_12"]
+curve = SubResource("Curve_11")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_13"]
+direction = Vector3(0, 1, 0)
+spread = 50
+initial_velocity_min = 0.2
+initial_velocity_max = 0.8
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.5
+scale_max = 1.2
+color = Color(0.164706, 0.164706, 0.188235, 1)
+damping_min = 0.4
+damping_max = 0.4
+emission_shape = 3
+emission_box_extents = Vector3(0.9, 0.4, 0.9)
+color_ramp = SubResource("GradientTexture1D_10")
+scale_curve = SubResource("CurveTexture_12")
+
+[node name="Ash" type="Node3D"]
+script = ExtResource("1_one_shot_fx")
+lifetime = 3.4
+light_fade = 0.25
+
+[node name="Embers" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 90
+lifetime = 2.6
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_6")
+draw_pass_1 = SubResource("QuadMesh_2")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("3_fx_glow_part")
+
+[node name="Soot" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 26
+lifetime = 3
+one_shot = true
+explosiveness = 0.6
+process_material = SubResource("ParticleProcessMaterial_13")
+draw_pass_1 = SubResource("QuadMesh_7")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("8_fx_smoke_par")

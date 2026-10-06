@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/models/sick_rig_Image_0.jpg" id="1_lmt3h"]
+[ext_resource type="Texture2D" path="res://assets/models/sick_rig_Image_1.jpg" id="2_67c5l"]
+[ext_resource type="Texture2D" path="res://assets/models/sick_rig_Image_2.jpg" id="3_f54yr"]
+
+[resource]
+resource_name = "Material_0.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_lmt3h")
+metallic = 1.0
+metallic_texture = ExtResource("2_67c5l")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_67c5l")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_f54yr")
+metadata/_gltf_primary_texture_coord = 0

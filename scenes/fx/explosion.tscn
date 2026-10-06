@@ -1,0 +1,200 @@
+[gd_scene load_steps=27 format=3]
+
+[ext_resource type="Script" path="res://scripts/fx/one_shot_fx.gd" id="1_one_shot_fx"]
+[ext_resource type="Material" path="res://assets/materials/fx_glow_particle.tres" id="3_fx_glow_part"]
+[ext_resource type="Material" path="res://assets/materials/fx_smoke_particle.tres" id="14_fx_smoke_par"]
+[ext_resource type="Material" path="res://assets/materials/fx_debris.tres" id="25_fx_debris"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2"]
+size = Vector2(1.8, 1.8)
+
+[sub_resource type="Gradient" id="Gradient_4"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5"]
+gradient = SubResource("Gradient_4")
+
+[sub_resource type="Curve" id="Curve_6"]
+_data = [Vector2(0, 0.4), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7"]
+curve = SubResource("Curve_6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8"]
+direction = Vector3(0, 1, 0)
+spread = 180
+initial_velocity_min = 0.5
+initial_velocity_max = 3.5
+gravity = Vector3(0, 1, 0)
+scale_min = 0.6
+scale_max = 1.4
+color = Color(1, 0.541176, 0.188235, 1)
+damping_min = 0
+damping_max = 0
+color_ramp = SubResource("GradientTexture1D_5")
+scale_curve = SubResource("CurveTexture_7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_9"]
+size = Vector2(3.2, 3.2)
+
+[sub_resource type="Gradient" id="Gradient_10"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_11"]
+gradient = SubResource("Gradient_10")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_12"]
+direction = Vector3(0, 1, 0)
+spread = 180
+initial_velocity_min = 0
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+scale_min = 1
+scale_max = 1
+color = Color(1, 0.878431, 0.690196, 1)
+damping_min = 0
+damping_max = 0
+color_ramp = SubResource("GradientTexture1D_11")
+
+[sub_resource type="QuadMesh" id="QuadMesh_13"]
+size = Vector2(3, 3)
+
+[sub_resource type="Gradient" id="Gradient_15"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_16"]
+gradient = SubResource("Gradient_15")
+
+[sub_resource type="Curve" id="Curve_17"]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_18"]
+curve = SubResource("Curve_17")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_19"]
+direction = Vector3(0, 1, 0)
+spread = 60
+initial_velocity_min = 0.6
+initial_velocity_max = 2
+gravity = Vector3(0, 0.4, 0)
+scale_min = 0.7
+scale_max = 1.3
+color = Color(0.290196, 0.294118, 0.321569, 1)
+damping_min = 0.8
+damping_max = 0.8
+color_ramp = SubResource("GradientTexture1D_16")
+scale_curve = SubResource("CurveTexture_18")
+
+[sub_resource type="QuadMesh" id="QuadMesh_20"]
+size = Vector2(0.08, 0.08)
+
+[sub_resource type="Gradient" id="Gradient_21"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_22"]
+gradient = SubResource("Gradient_21")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_23"]
+direction = Vector3(0, 1, 0)
+spread = 90
+initial_velocity_min = 6
+initial_velocity_max = 20
+gravity = Vector3(0, -9.8, 0)
+scale_min = 0.6
+scale_max = 1.4
+color = Color(1, 0.627451, 0.25098, 1)
+damping_min = 1.2
+damping_max = 1.2
+color_ramp = SubResource("GradientTexture1D_22")
+
+[sub_resource type="BoxMesh" id="BoxMesh_24"]
+size = Vector3(0.12, 0.08, 0.12)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_26"]
+direction = Vector3(0, 1, 0)
+spread = 70
+initial_velocity_min = 4
+initial_velocity_max = 11
+gravity = Vector3(0, -14, 0)
+scale_min = 0.5
+scale_max = 1.4
+color = Color(0.12549, 0.12549, 0.141176, 1)
+damping_min = 0
+damping_max = 0
+
+[node name="Explosion" type="Node3D" node_paths=PackedStringArray("light")]
+script = ExtResource("1_one_shot_fx")
+lifetime = 3
+light_fade = 0.35
+light = NodePath("Flash")
+
+[node name="Flash" type="OmniLight3D" parent="." groups=["tint"]]
+light_color = Color(1, 0.690196, 0.439216, 1)
+light_energy = 10
+omni_range = 16
+
+[node name="Fireball" type="GPUParticles3D" parent="." groups=["tint"]]
+emitting = false
+amount = 12
+lifetime = 0.6
+one_shot = true
+explosiveness = 1
+process_material = SubResource("ParticleProcessMaterial_8")
+draw_pass_1 = SubResource("QuadMesh_2")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("3_fx_glow_part")
+
+[node name="Core" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 3
+lifetime = 0.3
+one_shot = true
+explosiveness = 1
+process_material = SubResource("ParticleProcessMaterial_12")
+draw_pass_1 = SubResource("QuadMesh_9")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("3_fx_glow_part")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 8
+lifetime = 2.6
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_19")
+draw_pass_1 = SubResource("QuadMesh_13")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("14_fx_smoke_par")
+
+[node name="Sparks" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 40
+lifetime = 1
+one_shot = true
+explosiveness = 1
+process_material = SubResource("ParticleProcessMaterial_23")
+draw_pass_1 = SubResource("QuadMesh_20")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("3_fx_glow_part")
+
+[node name="Debris" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 14
+lifetime = 2.5
+one_shot = true
+explosiveness = 1
+process_material = SubResource("ParticleProcessMaterial_26")
+draw_pass_1 = SubResource("BoxMesh_24")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("25_fx_debris")

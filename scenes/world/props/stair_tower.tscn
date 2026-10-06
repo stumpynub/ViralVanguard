@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Material" path="res://assets/materials/metal_dark.tres" id="1_metal_dark"]
+[ext_resource type="Material" path="res://assets/materials/metal_mid.tres" id="2_metal_mid"]
+[ext_resource type="Material" path="res://assets/materials/glow_cyan.tres" id="4_glow_cyan"]
+[ext_resource type="Material" path="res://assets/materials/glow_magenta.tres" id="7_glow_magenta"]
+[ext_resource type="Shader" path="res://assets/shaders/light_pool.gdshader" id="12_light_pool"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3"]
+size = Vector3(3.9, 0.02, 0.06)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5"]
+size = Vector3(4.1, 0.5, 17.784403)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6"]
+size = Vector3(0.06, 0.06, 17.784403)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8"]
+size = Vector3(0.08, 0.3, 17.784403)
+
+[sub_resource type="BoxMesh" id="BoxMesh_9"]
+size = Vector3(0.06, 0.06, 17.784403)
+
+[sub_resource type="BoxMesh" id="BoxMesh_10"]
+size = Vector3(0.08, 0.3, 17.784403)
+
+[sub_resource type="BoxMesh" id="BoxMesh_11"]
+size = Vector3(4.1, 8.2, 0.06)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13"]
+resource_local_to_scene = true
+shader = ExtResource("12_light_pool")
+shader_parameter/color = Color(0.129412, 0.901961, 1, 1)
+shader_parameter/strength = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_14"]
+size = Vector2(6, 6)
+orientation = 1
+
+[node name="StairTower" type="Node3D"]
+
+[node name="Landing" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.7, 0)
+size = Vector3(4, 0.6, 4)
+use_collision = true
+collision_mask = 0
+material = ExtResource("1_metal_dark")
+
+[node name="Treads" type="CSGPolygon3D" parent="."]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 2, 0, 2)
+polygon = PackedVector2Array(0, 0, 0, 9.15, 0.5, 9.15, 0.5, 8.85, 1, 8.85, 1, 8.55, 1.5, 8.55, 1.5, 8.25, 2, 8.25, 2, 7.95, 2.5, 7.95, 2.5, 7.65, 3, 7.65, 3, 7.35, 3.5, 7.35, 3.5, 7.05, 4, 7.05, 4, 6.75, 4.5, 6.75, 4.5, 6.45, 5, 6.45, 5, 6.15, 5.5, 6.15, 5.5, 5.85, 6, 5.85, 6, 5.55, 6.5, 5.55, 6.5, 5.25, 7, 5.25, 7, 4.95, 7.5, 4.95, 7.5, 4.65, 8, 4.65, 8, 4.35, 8.5, 4.35, 8.5, 4.05, 9, 4.05, 9, 3.75, 9.5, 3.75, 9.5, 3.45, 10, 3.45, 10, 3.15, 10.5, 3.15, 10.5, 2.85, 11, 2.85, 11, 2.55, 11.5, 2.55, 11.5, 2.25, 12, 2.25, 12, 1.95, 12.5, 1.95, 12.5, 1.65, 13, 1.65, 13, 1.35, 13.5, 1.35, 13.5, 1.05, 14, 1.05, 14, 0.75, 14.5, 0.75, 14.5, 0.45, 15, 0.45, 15.25, 0)
+depth = 4
+material = ExtResource("2_metal_mid")
+
+[node name="Nosing" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.17, 2.47)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Nosing2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.67, 4.97)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Nosing3" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.17, 7.47)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Nosing4" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.67, 9.97)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Nosing5" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.17, 12.47)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Nosing6" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67, 14.97)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Ramp" type="StaticBody3D" parent="."]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Ramp"]
+transform = Transform3D(1, 0, 0, 0, 0.857493, -0.514496, 0, 0.514496, 0.857493, 0, 4.360627, 9.625)
+shape = SubResource("BoxShape3D_5")
+
+[node name="Handrail" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6")
+transform = Transform3D(1, 0, 0, 0, 0.857493, -0.514496, 0, 0.514496, 0.857493, -2.05, 5.655, 9.625)
+material_override = ExtResource("7_glow_magenta")
+cast_shadow = 0
+
+[node name="Stringer" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8")
+transform = Transform3D(1, 0, 0, 0, 0.857493, -0.514496, 0, 0.514496, 0.857493, -2.05, 4.575, 9.625)
+material_override = ExtResource("1_metal_dark")
+
+[node name="Handrail2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_9")
+transform = Transform3D(1, 0, 0, 0, 0.857493, -0.514496, 0, 0.514496, 0.857493, 2.05, 5.655, 9.625)
+material_override = ExtResource("7_glow_magenta")
+cast_shadow = 0
+
+[node name="Stringer2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(1, 0, 0, 0, 0.857493, -0.514496, 0, 0.514496, 0.857493, 2.05, 4.575, 9.625)
+material_override = ExtResource("1_metal_dark")
+
+[node name="BackWall" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_11")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1, 2.02)
+material_override = ExtResource("1_metal_dark")
+
+[node name="Pool" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_14")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 18.5)
+material_override = SubResource("ShaderMaterial_13")
+cast_shadow = 0

@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/tinted_prop.gd" id="1_tinted_prop"]
+[ext_resource type="Material" path="res://assets/materials/canopy.tres" id="5_canopy"]
+[ext_resource type="Material" path="res://assets/materials/glow_red.tres" id="9_glow_red"]
+[ext_resource type="Material" path="res://assets/materials/glow_white.tres" id="10_glow_white"]
+[ext_resource type="Shader" path="res://assets/shaders/light_pool.gdshader" id="12_light_pool"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2"]
+resource_local_to_scene = true
+albedo_color = Color(0.352941, 0.101961, 0.290196, 1)
+metallic = 0.8
+roughness = 0.3
+clearcoat_enabled = true
+clearcoat = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_3"]
+size = Vector3(2.1, 0.7, 4.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4"]
+size = Vector3(1.7, 0.55, 2.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6"]
+size = Vector3(1.9, 0.05, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7"]
+resource_local_to_scene = true
+albedo_color = Color(0.129412, 0.901961, 1, 1)
+emission_enabled = true
+emission = Color(0.129412, 0.901961, 1, 1)
+emission_energy_multiplier = 2.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_8"]
+size = Vector3(0.5, 0.12, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_11"]
+size = Vector3(2.1, 1.6, 4.4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13"]
+resource_local_to_scene = true
+shader = ExtResource("12_light_pool")
+shader_parameter/color = Color(0.129412, 0.901961, 1, 1)
+shader_parameter/strength = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_14"]
+size = Vector2(6.4, 6.4)
+orientation = 1
+
+[node name="HoverCar" type="Node3D"]
+script = ExtResource("1_tinted_prop")
+paint = Color(0.352941, 0.101961, 0.290196, 1)
+glow = Color(0.129412, 0.901961, 1, 1)
+paint_targets = Array[NodePath]([NodePath("Body")])
+glow_targets = Array[NodePath]([NodePath("UnderGlow")])
+pool_targets = Array[NodePath]([NodePath("Pool")])
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+material_override = SubResource("StandardMaterial3D_2")
+
+[node name="Canopy" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -0.2)
+material_override = ExtResource("5_canopy")
+
+[node name="UnderGlow" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
+material_override = SubResource("StandardMaterial3D_7")
+cast_shadow = 0
+
+[node name="TailLight" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.85, -2.22)
+material_override = ExtResource("9_glow_red")
+cast_shadow = 0
+
+[node name="HeadLight" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.85, 2.22)
+material_override = ExtResource("10_glow_white")
+cast_shadow = 0
+
+[node name="TailLight2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.85, -2.22)
+material_override = ExtResource("9_glow_red")
+cast_shadow = 0
+
+[node name="HeadLight2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.85, 2.22)
+material_override = ExtResource("10_glow_white")
+cast_shadow = 0
+
+[node name="Collision" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("BoxShape3D_11")
+
+[node name="Pool" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_14")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+material_override = SubResource("ShaderMaterial_13")
+cast_shadow = 0

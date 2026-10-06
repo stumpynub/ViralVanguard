@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/facade.gdshader" id="1_facade"]
+
+[resource]
+shader = ExtResource("1_facade")
+shader_parameter/style = 2
+shader_parameter/wall_color = Color(0.164706, 0.133333, 0.12549, 1)
+shader_parameter/lit_a = Color(1, 0.603922, 0.235294, 1)
+shader_parameter/lit_b = Color(1, 0.541176, 0.164706, 1)
+shader_parameter/neon_a = Color(1, 0.541176, 0.164706, 1)
+shader_parameter/neon_b = Color(1, 0.752941, 0.411765, 1)
+shader_parameter/lit_chance = 0.4
+shader_parameter/neon_chance = 0
+shader_parameter/emission_strength = 1.3

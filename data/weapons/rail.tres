@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="1_weapon_data"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/rail.tscn" id="2_rail"]
+[ext_resource type="Texture2D" path="res://assets/icons/weapon_rail.svg" id="3_weapon_rail"]
+
+[resource]
+script = ExtResource("1_weapon_data")
+id = "rail"
+display_name = "Orion Rail Lance"
+short_name = "ORION"
+weapon_class = "Marksman"
+description = "Pierces every infected in a line and punches through three blocks."
+carry = "Sling ready"
+reload_name = "Power cell exchange"
+model_scene = ExtResource("2_rail")
+icon = ExtResource("3_weapon_rail")
+color = Color(0.705882, 0.419608, 1, 1)
+damage = 110
+fire_interval = 0.85
+magazine = 5
+reload_time = 2.1
+pellets = 1
+spread = 0
+recoil = 0.04
+kick = 0.025
+block_break = 1.1
+max_range = 170
+fire_mode = "release"
+ads_time = 0.32
+ads_zoom = 0.45
+scoped = true
+sight_height = 0.13
+brass = 0
+burst_count = 0
+spin_up = 0
+move_multiplier = 1
+pierce = true
+explosion_radius = 0
+chill_time = 0
+gravity_well_time = 0
+chain_jumps = 0

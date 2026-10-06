@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/fx/one_shot_fx.gd" id="1_one_shot_fx"]
+[ext_resource type="Material" path="res://assets/materials/fx_glow_particle.tres" id="3_fx_glow_part"]
+[ext_resource type="Material" path="res://assets/materials/fx_smoke_particle.tres" id="8_fx_smoke_par"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2"]
+size = Vector2(0.07, 0.07)
+
+[sub_resource type="Gradient" id="Gradient_4"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5"]
+gradient = SubResource("Gradient_4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6"]
+direction = Vector3(0, 1, 0)
+spread = 180
+initial_velocity_min = 2
+initial_velocity_max = 6
+gravity = Vector3(0, -6, 0)
+scale_min = 1
+scale_max = 1
+color = Color(0.129412, 0.901961, 1, 1)
+damping_min = 1
+damping_max = 1
+color_ramp = SubResource("GradientTexture1D_5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7"]
+size = Vector2(0.7, 0.7)
+
+[sub_resource type="Gradient" id="Gradient_9"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.7, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_10"]
+gradient = SubResource("Gradient_9")
+
+[sub_resource type="Curve" id="Curve_11"]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_12"]
+curve = SubResource("Curve_11")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_13"]
+direction = Vector3(0, 1, 0)
+spread = 90
+initial_velocity_min = 0.3
+initial_velocity_max = 1.2
+gravity = Vector3(0, 0.4, 0)
+scale_min = 1
+scale_max = 1
+color = Color(0.541176, 0.54902, 0.588235, 1)
+damping_min = 0
+damping_max = 0
+color_ramp = SubResource("GradientTexture1D_10")
+scale_curve = SubResource("CurveTexture_12")
+
+[node name="Puff" type="Node3D" node_paths=PackedStringArray("light")]
+script = ExtResource("1_one_shot_fx")
+lifetime = 1.2
+light_fade = 0.15
+light = NodePath("Flash")
+
+[node name="Flash" type="OmniLight3D" parent="." groups=["tint"]]
+light_color = Color(1, 1, 1, 1)
+light_energy = 1.5
+omni_range = 4
+
+[node name="Sparks" type="GPUParticles3D" parent="." groups=["tint"]]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1
+process_material = SubResource("ParticleProcessMaterial_6")
+draw_pass_1 = SubResource("QuadMesh_2")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("3_fx_glow_part")
+
+[node name="Smoke" type="GPUParticles3D" parent="." groups=["tint"]]
+emitting = false
+amount = 4
+lifetime = 0.8
+one_shot = true
+explosiveness = 1
+process_material = SubResource("ParticleProcessMaterial_13")
+draw_pass_1 = SubResource("QuadMesh_7")
+cast_shadow = 0
+visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
+material_override = ExtResource("8_fx_smoke_par")

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="1_weapon_data"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/smg.tscn" id="2_smg"]
+[ext_resource type="Texture2D" path="res://assets/icons/weapon_smg.svg" id="3_weapon_smg"]
+
+[resource]
+script = ExtResource("1_weapon_data")
+id = "smg"
+display_name = "Hornet-7 PDW"
+short_name = "HORNET"
+weapon_class = "Close quarters"
+description = "Very fast fire and quick reloads, with light hits."
+carry = "High ready"
+reload_name = "Drum swap"
+model_scene = ExtResource("2_smg")
+icon = ExtResource("3_weapon_smg")
+color = Color(0.239216, 1, 0.603922, 1)
+damage = 10
+fire_interval = 0.05
+magazine = 45
+reload_time = 1.2
+pellets = 1
+spread = 0.018
+recoil = 0.006
+kick = 0.003
+block_break = 0.7
+max_range = 45
+fire_mode = "hip"
+ads_time = 0.2
+ads_zoom = 0.22
+scoped = false
+sight_height = 0.115
+brass = 1
+burst_count = 0
+spin_up = 0
+move_multiplier = 1
+pierce = false
+explosion_radius = 0
+chill_time = 0
+gravity_well_time = 0
+chain_jumps = 0

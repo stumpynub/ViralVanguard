@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="1_weapon_data"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/sniper.tscn" id="2_sniper"]
+[ext_resource type="Texture2D" path="res://assets/icons/weapon_sniper.svg" id="3_weapon_snipe"]
+
+[resource]
+script = ExtResource("1_weapon_data")
+id = "sniper"
+display_name = "Nightfall .408 Bolt Rifle"
+short_name = "NIGHTFALL"
+weapon_class = "Precision"
+description = "Bolt-action precision rifle. Heavy rounds with real travel time and drop; a headshot is lethal. Hold sprint while scoped to steady your breath. Your scope glints at whoever you are watching."
+carry = "Shoulder sling"
+reload_name = "Stripper clip"
+model_scene = ExtResource("2_sniper")
+icon = ExtResource("3_weapon_snipe")
+color = Color(0.878431, 0.188235, 0.164706, 1)
+damage = 95
+fire_interval = 1
+magazine = 5
+reload_time = 2.9
+pellets = 1
+spread = 0
+recoil = 0.07
+kick = 0.06
+block_break = 1
+max_range = 420
+fire_mode = "onetap"
+ads_time = 0.24
+ads_zoom = 0.3
+scoped = true
+sight_height = 0.2645
+brass = 1
+burst_count = 0
+spin_up = 0
+move_multiplier = 1
+pierce = false
+explosion_radius = 0
+chill_time = 0
+gravity_well_time = 0
+chain_jumps = 0
+bolt_action = true
+bolt_time = 0.95
+bullet_speed = 330
+bullet_gravity = 12
+headshot_mult = 2.6
+scope_zoom = 6
+scope_sway = 0.0065
+hold_breath = 3.2
+hip_spread = 0.075
+settle_time = 0.2

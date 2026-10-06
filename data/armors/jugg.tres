@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ArmorData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/armor_data.gd" id="1_armor_data"]
+[ext_resource type="Texture2D" path="res://assets/icons/armor_jugg.svg" id="2_armor_jugg"]
+
+[resource]
+script = ExtResource("1_armor_data")
+id = "jugg"
+display_name = "Juggernaut"
+armor_class = "Heavy"
+perk = "Takes 25% less damage. Slow to move."
+tier = 0
+primary_color = Color(1, 0.164706, 0.239216, 1)
+secondary_color = Color(0.415686, 0.388235, 0.52549, 1)
+icon = ExtResource("2_armor_jugg")
+max_health = 170
+speed = 0.8
+damage_reduction = 0.25
+regen = 1
+cooldown_reduction = 0
+enemy_slow = 1
+jump_multiplier = 1

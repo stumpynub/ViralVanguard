@@ -1,0 +1,8 @@
+{
+  "name": "atlas-assets",
+  "description": "Generate game assets (images, 3D models, sound effects, voice) with Atlas Cloud, Tripo and ElevenLabs under hard budgets, with spend ledgers and a provenance log.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Viral Vanguard"
+  }
+}

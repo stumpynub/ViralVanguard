@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b3qb3i5bwpro2"
+path.s3tc="res://.godot/imported/sniper_NormalGL_d26c5263-1e05-4357-b794-5276d2e53c6f.png-703afd89381cc4a0b9bf0363e34ecc9b.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "625ec33e4d681d81296e89c0e581ee6b"
+}
+
+[deps]
+
+source_file="res://assets/placeholder/models/sniper_NormalGL_d26c5263-1e05-4357-b794-5276d2e53c6f.png"
+dest_files=["res://.godot/imported/sniper_NormalGL_d26c5263-1e05-4357-b794-5276d2e53c6f.png-703afd89381cc4a0b9bf0363e34ecc9b.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/placeholder/models/sniper_NormalGL_d26c5263-1e05-4357-b794-5276d2e53c6f.png"
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

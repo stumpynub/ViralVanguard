@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/lift.gd" id="1_lift"]
+[ext_resource type="PackedScene" path="res://assets/models/kit/lift.glb" id="2_lift"]
+[ext_resource type="Shader" path="res://assets/shaders/lift_beam.gdshader" id="4_lift_beam"]
+[ext_resource type="Shader" path="res://assets/shaders/light_pool.gdshader" id="6_light_pool"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3"]
+top_radius = 1.35
+bottom_radius = 1.35
+height = 20
+radial_segments = 24
+cap_top = false
+cap_bottom = false
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5"]
+shader = ExtResource("4_lift_beam")
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7"]
+resource_local_to_scene = true
+shader = ExtResource("6_light_pool")
+shader_parameter/color = Color(0.129412, 0.901961, 1, 1)
+shader_parameter/strength = 0.6
+
+[sub_resource type="QuadMesh" id="QuadMesh_8"]
+size = Vector2(6.4, 6.4)
+orientation = 1
+
+[node name="Lift" type="Node3D"]
+script = ExtResource("1_lift")
+
+[node name="Pad" parent="." instance=ExtResource("2_lift")]
+
+[node name="Beam" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+material_override = SubResource("ShaderMaterial_5")
+cast_shadow = 0
+
+[node name="Pool" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+material_override = SubResource("ShaderMaterial_7")
+cast_shadow = 0

@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_player"]
+[ext_resource type="PackedScene" path="res://assets/models/drone.glb" id="3_drone"]
+[ext_resource type="PackedScene" path="res://scenes/characters/hunter_operative.tscn" id="8_hunter_opera"]
+[ext_resource type="Script" path="res://scripts/player/weapon_controller.gd" id="11_weapon_contr"]
+[ext_resource type="Script" path="res://scripts/player/abilities.gd" id="12_abilities"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_4"]
+radius = 0.035
+height = 0.07
+radial_segments = 8
+rings = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5"]
+albedo_color = Color(0.129412, 0.901961, 1, 1)
+emission_enabled = true
+emission = Color(0.129412, 0.901961, 1, 1)
+emission_energy_multiplier = 3
+
+[sub_resource type="BoxMesh" id="BoxMesh_6"]
+size = Vector3(0.012, 0.012, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7"]
+albedo_color = Color(0.603922, 0.643137, 0.721569, 1)
+metallic = 1
+roughness = 0.35
+emission_enabled = true
+emission = Color(0.239216, 1, 0.784314, 1)
+emission_energy_multiplier = 0.4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_9"]
+top_radius = 0.08
+bottom_radius = 0
+height = 1.35
+radial_segments = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.309804, 0.54902, 1, 0.8)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "gun_holder", "weapons", "abilities", "jet_fx", "cable", "body") groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+floor_snap_length = 0.6
+floor_max_angle = 0.802851
+script = ExtResource("1_player")
+head = NodePath("Head")
+camera = NodePath("Head/Camera")
+gun_holder = NodePath("Head/Camera/GunHolder")
+weapons = NodePath("WeaponController")
+abilities = NodePath("Abilities")
+jet_fx = NodePath("JetFX")
+cable = NodePath("Cable")
+body = NodePath("Body")
+
+[node name="Shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_2")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="Camera" type="Camera3D" parent="Head"]
+fov = 85
+near = 0.03
+far = 900
+current = true
+
+[node name="GunHolder" type="Node3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.28, -0.6)
+
+[node name="GunWrap" type="Node3D" parent="Head/Camera/GunHolder"]
+
+[node name="FillLight" type="OmniLight3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.25, 0.1)
+light_color = Color(0.705882, 0.768627, 1, 1)
+light_energy = 2
+omni_range = 2.6
+
+[node name="Drone" type="Node3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.35, -1.2)
+
+[node name="Model" parent="Head/Camera/Drone" instance=ExtResource("3_drone")]
+transform = Transform3D(-0.32, 0, 0, 0, 0.32, 0, 0, 0, -0.32, 0, 0, 0)
+
+[node name="Eye" type="MeshInstance3D" parent="Head/Camera/Drone"]
+mesh = SubResource("SphereMesh_4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.17)
+material_override = SubResource("StandardMaterial3D_5")
+cast_shadow = 0
+
+[node name="Cable" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6")
+material_override = SubResource("StandardMaterial3D_7")
+cast_shadow = 0
+
+[node name="Body" parent="." instance=ExtResource("8_hunter_opera")]
+
+[node name="JetFX" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, 0)
+
+[node name="Plume" type="MeshInstance3D" parent="JetFX"]
+mesh = SubResource("CylinderMesh_9")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26, -0.675, 0.25)
+material_override = SubResource("StandardMaterial3D_10")
+cast_shadow = 0
+
+[node name="Plume2" type="MeshInstance3D" parent="JetFX"]
+mesh = SubResource("CylinderMesh_9")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26, -0.675, 0.25)
+material_override = SubResource("StandardMaterial3D_10")
+cast_shadow = 0
+
+[node name="Glow" type="OmniLight3D" parent="JetFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0.3)
+light_color = Color(0.415686, 0.627451, 1, 1)
+light_energy = 2.2
+omni_range = 7
+
+[node name="WeaponController" type="Node" parent="." node_paths=PackedStringArray("player", "gun_wrap")]
+script = ExtResource("11_weapon_contr")
+player = NodePath("..")
+gun_wrap = NodePath("../Head/Camera/GunHolder/GunWrap")
+
+[node name="Abilities" type="Node" parent="." node_paths=PackedStringArray("player", "drone", "drone_eye")]
+script = ExtResource("12_abilities")
+player = NodePath("..")
+drone = NodePath("../Head/Camera/Drone")
+drone_eye = NodePath("../Head/Camera/Drone/Eye")

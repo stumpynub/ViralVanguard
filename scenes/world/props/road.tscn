@@ -1,0 +1,73 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/road.gd" id="1_road"]
+[ext_resource type="Shader" path="res://assets/shaders/road.gdshader" id="3_road"]
+[ext_resource type="Material" path="res://assets/materials/roof.tres" id="6_roof"]
+[ext_resource type="Material" path="res://assets/materials/glow_violet.tres" id="8_glow_violet"]
+[ext_resource type="Material" path="res://assets/materials/paver.tres" id="10_paver"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2"]
+size = Vector2(13.77, 40)
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4"]
+shader = ExtResource("3_road")
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5"]
+size = Vector3(0.24, 0.14, 40)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7"]
+size = Vector3(0.06, 0.02, 40)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_9"]
+size = Vector3(3.5, 0.12, 40)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_11"]
+size = Vector3(0.24, 0.14, 40)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_12"]
+size = Vector3(0.06, 0.02, 40)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_13"]
+size = Vector3(3.5, 0.12, 40)
+resource_local_to_scene = true
+
+[node name="Road" type="Node3D"]
+script = ExtResource("1_road")
+
+[node name="Asphalt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_2")
+material_override = SubResource("ShaderMaterial_4")
+cast_shadow = 0
+
+[node name="KerbL" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_5")
+material_override = ExtResource("6_roof")
+
+[node name="KerbGlowL" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7")
+material_override = ExtResource("8_glow_violet")
+cast_shadow = 0
+
+[node name="WalkL" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_9")
+material_override = ExtResource("10_paver")
+
+[node name="KerbR" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_11")
+material_override = ExtResource("6_roof")
+
+[node name="KerbGlowR" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_12")
+material_override = ExtResource("8_glow_violet")
+cast_shadow = 0
+
+[node name="WalkR" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_13")
+material_override = ExtResource("10_paver")

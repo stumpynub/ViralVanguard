@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/crate_block.gd" id="1_crate_block"]
+[ext_resource type="Material" path="res://assets/materials/crate_steel.tres" id="3_crate_steel"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4"]
+size = Vector3(2, 2, 2)
+
+[node name="CrateBlock" type="StaticBody3D" groups=["blocks"]]
+collision_mask = 0
+script = ExtResource("1_crate_block")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2")
+material_override = ExtResource("3_crate_steel")
+
+[node name="Shape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4")

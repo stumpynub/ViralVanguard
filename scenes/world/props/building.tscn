@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/building.gd" id="1_building"]
+[ext_resource type="Material" path="res://assets/materials/facade_residential.tres" id="3_facade_resid"]
+[ext_resource type="Material" path="res://assets/materials/shopfront.tres" id="5_shopfront"]
+[ext_resource type="Material" path="res://assets/materials/metal_dark.tres" id="7_metal_dark"]
+[ext_resource type="Material" path="res://assets/materials/roof.tres" id="9_roof"]
+[ext_resource type="Material" path="res://assets/materials/glow_magenta.tres" id="11_glow_magenta"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2"]
+size = Vector3(16, 24, 16)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4"]
+size = Vector3(16, 4.5, 16)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6"]
+size = Vector3(16.2, 0.18, 16.2)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8"]
+size = Vector3(16.3, 0.3, 16.3)
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_10"]
+size = Vector3(16.3, 0.06, 0.06)
+resource_local_to_scene = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_12"]
+size = Vector3(16, 24, 16)
+resource_local_to_scene = true
+
+[node name="Building" type="Node3D"]
+script = ExtResource("1_building")
+
+[node name="Facade" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+material_override = ExtResource("3_facade_resid")
+
+[node name="ShopBand" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+material_override = ExtResource("5_shopfront")
+visible = false
+
+[node name="ShopLedge" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.55, 0)
+material_override = ExtResource("7_metal_dark")
+visible = false
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.15, 0)
+material_override = ExtResource("9_roof")
+
+[node name="RoofTrim" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.32, 8.13)
+material_override = ExtResource("11_glow_magenta")
+cast_shadow = 0
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+shape = SubResource("BoxShape3D_12")

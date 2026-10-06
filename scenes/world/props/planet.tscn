@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Shader" path="res://assets/shaders/planet.gdshader" id="2_planet"]
+[ext_resource type="Shader" path="res://assets/shaders/planet_rim.gdshader" id="5_planet_rim"]
+[ext_resource type="Script" path="res://scripts/world/props/spinner.gd" id="7_spinner"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1"]
+radius = 80
+height = 160
+radial_segments = 64
+rings = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3"]
+shader = ExtResource("2_planet")
+
+[sub_resource type="SphereMesh" id="SphereMesh_4"]
+radius = 86
+height = 172
+radial_segments = 48
+rings = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6"]
+shader = ExtResource("5_planet_rim")
+
+[node name="Planet" type="Node3D"]
+
+[node name="Globe" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1")
+material_override = SubResource("ShaderMaterial_3")
+cast_shadow = 0
+
+[node name="Atmosphere" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4")
+material_override = SubResource("ShaderMaterial_6")
+cast_shadow = 0
+script = ExtResource("7_spinner")

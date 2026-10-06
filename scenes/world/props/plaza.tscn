@@ -1,0 +1,668 @@
+[gd_scene load_steps=61 format=3]
+
+[ext_resource type="Material" path="res://assets/materials/paver.tres" id="2_paver"]
+[ext_resource type="Material" path="res://assets/materials/glow_cyan.tres" id="4_glow_cyan"]
+[ext_resource type="Material" path="res://assets/materials/glow_magenta.tres" id="6_glow_magenta"]
+[ext_resource type="Material" path="res://assets/materials/glow_violet.tres" id="8_glow_violet"]
+[ext_resource type="Material" path="res://assets/materials/glow_blue.tres" id="11_glow_blue"]
+[ext_resource type="Material" path="res://assets/materials/plaza.tres" id="13_plaza"]
+[ext_resource type="Material" path="res://assets/materials/metal_dark.tres" id="15_metal_dark"]
+[ext_resource type="Shader" path="res://assets/shaders/light_pool.gdshader" id="17_light_pool"]
+[ext_resource type="Material" path="res://assets/materials/metal_pole.tres" id="21_metal_pole"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1"]
+top_radius = 25.5
+bottom_radius = 25.5
+height = 0.1
+radial_segments = 96
+
+[sub_resource type="TorusMesh" id="TorusMesh_3"]
+inner_radius = 24.48
+outer_radius = 24.72
+rings = 128
+ring_segments = 4
+
+[sub_resource type="TorusMesh" id="TorusMesh_5"]
+inner_radius = 19.88
+outer_radius = 20.12
+rings = 128
+ring_segments = 4
+
+[sub_resource type="TorusMesh" id="TorusMesh_7"]
+inner_radius = 15.08
+outer_radius = 15.32
+rings = 128
+ring_segments = 4
+
+[sub_resource type="TorusMesh" id="TorusMesh_9"]
+inner_radius = 9.48
+outer_radius = 9.72
+rings = 128
+ring_segments = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_10"]
+size = Vector3(0.08, 0.02, 4.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_12"]
+top_radius = 12.4
+bottom_radius = 12.4
+height = 0.24
+radial_segments = 64
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_14"]
+top_radius = 10
+bottom_radius = 10
+height = 0.2
+radial_segments = 64
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_16"]
+height = 0.4
+radius = 12.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18"]
+resource_local_to_scene = true
+shader = ExtResource("17_light_pool")
+shader_parameter/color = Color(0.541176, 0.231373, 1, 1)
+shader_parameter/strength = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_19"]
+size = Vector2(60, 60)
+orientation = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_20"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_22"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_23"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_24"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_25"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_26"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_27"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_28"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_29"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_30"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_31"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_32"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_33"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_34"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_35"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_36"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_37"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_38"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_39"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_40"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_41"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_42"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_43"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_44"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_45"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_46"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_47"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_48"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_49"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_50"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_51"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_52"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_53"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_54"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_55"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_56"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_57"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_58"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_59"]
+top_radius = 0.14
+bottom_radius = 0.14
+height = 0.9
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_60"]
+size = Vector3(0.3, 0.06, 0.3)
+
+[node name="Plaza" type="Node3D"]
+
+[node name="Paving" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+material_override = ExtResource("2_paver")
+
+[node name="LightRing" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_3")
+transform = Transform3D(1, 0, 0, 0, 0.15, 0, 0, 0, 1, 0, 0.11, 0)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="LightRing2" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_5")
+transform = Transform3D(1, 0, 0, 0, 0.15, 0, 0, 0, 1, 0, 0.11, 0)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="LightRing3" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_7")
+transform = Transform3D(1, 0, 0, 0, 0.15, 0, 0, 0, 1, 0, 0.11, 0)
+material_override = ExtResource("8_glow_violet")
+cast_shadow = 0
+
+[node name="LightRing4" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_9")
+transform = Transform3D(1, 0, 0, 0, 0.15, 0, 0, 0, 1, 0, 0.11, 0)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Inlay" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 17.6)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4.555215, 0.11, 17.000295)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay3" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 8.8, 0.11, 15.242047)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay4" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12.445079, 0.11, 12.445079)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay5" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 15.242047, 0.11, 8.8)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay6" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 17.000295, 0.11, 4.555215)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay7" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 17.6, 0.11, 0)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay8" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 17.000295, 0.11, -4.555215)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay9" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 15.242047, 0.11, -8.8)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay10" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 12.445079, 0.11, -12.445079)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay11" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 8.8, 0.11, -15.242047)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay12" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 4.555215, 0.11, -17.000295)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay13" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0.11, -17.6)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay14" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -4.555215, 0.11, -17.000295)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay15" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -8.8, 0.11, -15.242047)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay16" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -12.445079, 0.11, -12.445079)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay17" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -15.242047, 0.11, -8.8)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay18" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -17.000295, 0.11, -4.555215)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay19" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -17.6, 0.11, 0)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay20" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -17.000295, 0.11, 4.555215)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay21" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -15.242047, 0.11, 8.8)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay22" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -12.445079, 0.11, 12.445079)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay23" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -8.8, 0.11, 15.242047)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Inlay24" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_10")
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -4.555215, 0.11, 17.000295)
+material_override = ExtResource("11_glow_blue")
+cast_shadow = 0
+
+[node name="Podium" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_12")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+material_override = ExtResource("13_plaza")
+
+[node name="PodiumTop" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_14")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("15_metal_dark")
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CylinderShape3D_16")
+
+[node name="Pool" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_19")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14, 0)
+material_override = SubResource("ShaderMaterial_18")
+cast_shadow = 0
+
+[node name="Bollard" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_20")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.622428, 0.45, 22.123711)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_22")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.622428, 0.93, 22.123711)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard2" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_23")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.088738, 0.45, 19.397034)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_24")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.088738, 0.93, 19.397034)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard3" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_25")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.663072, 0.45, 15.348482)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap3" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_26")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.663072, 0.93, 15.348482)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard4" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_27")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.033697, 0.45, 10.253955)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap4" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_28")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.033697, 0.93, 10.253955)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard5" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_29")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.97091, 0.45, 4.460639)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap5" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_30")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.97091, 0.93, 4.460639)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard6" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_31")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.123711, 0.45, -7.622428)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap6" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_32")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.123711, 0.93, -7.622428)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard7" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_33")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.397034, 0.45, -13.088738)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap7" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_34")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.397034, 0.93, -13.088738)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard8" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_35")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.348482, 0.45, -17.663072)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap8" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_36")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.348482, 0.93, -17.663072)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard9" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_37")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253955, 0.45, -21.033697)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap9" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_38")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.253955, 0.93, -21.033697)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard10" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_39")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.460639, 0.45, -22.97091)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap10" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_40")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.460639, 0.93, -22.97091)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard11" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_41")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.622428, 0.45, -22.123711)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap11" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_42")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.622428, 0.93, -22.123711)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard12" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_43")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.088738, 0.45, -19.397034)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap12" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_44")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.088738, 0.93, -19.397034)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard13" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_45")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.663072, 0.45, -15.348482)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap13" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_46")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.663072, 0.93, -15.348482)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard14" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_47")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.033697, 0.45, -10.253955)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap14" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_48")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.033697, 0.93, -10.253955)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard15" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_49")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.97091, 0.45, -4.460639)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap15" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_50")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.97091, 0.93, -4.460639)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard16" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_51")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.123711, 0.45, 7.622428)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap16" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_52")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.123711, 0.93, 7.622428)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard17" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_53")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.397034, 0.45, 13.088738)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap17" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_54")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.397034, 0.93, 13.088738)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard18" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_55")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.348482, 0.45, 17.663072)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap18" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_56")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.348482, 0.93, 17.663072)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0
+
+[node name="Bollard19" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_57")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.253955, 0.45, 21.033697)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap19" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_58")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.253955, 0.93, 21.033697)
+material_override = ExtResource("4_glow_cyan")
+cast_shadow = 0
+
+[node name="Bollard20" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_59")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.460639, 0.45, 22.97091)
+material_override = ExtResource("21_metal_pole")
+
+[node name="BollardCap20" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_60")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.460639, 0.93, 22.97091)
+material_override = ExtResource("6_glow_magenta")
+cast_shadow = 0

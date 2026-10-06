@@ -1,0 +1,480 @@
+[gd_scene load_steps=54 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/avatar_stage.gd" id="1_avatar_stage"]
+[ext_resource type="Shader" path="res://assets/shaders/menu/toon.gdshader" id="2_toon"]
+[ext_resource type="Shader" path="res://assets/shaders/menu/outline.gdshader" id="3_outline"]
+[ext_resource type="Texture2D" path="res://assets/generated/menu/floor_top_01.png" id="7_floor_top_01"]
+[ext_resource type="Texture2D" path="res://assets/generated/menu/wall_01.png" id="9_wall_01"]
+[ext_resource type="Shader" path="res://assets/shaders/menu/cloth.gdshader" id="31_cloth"]
+[ext_resource type="Texture2D" path="res://assets/generated/menu/sigil_01.jpg" id="32_sigil_01"]
+[ext_resource type="PackedScene" path="res://assets/placeholder/models/sniper.glb" id="39_sniper"]
+[ext_resource type="PackedScene" path="res://assets/models/spider.glb" id="42_spider"]
+[ext_resource type="Material" path="res://assets/materials/fx_smoke_particle.tres" id="50_fx_smoke_par"]
+[ext_resource type="Material" path="res://assets/materials/fx_glow_particle.tres" id="53_fx_glow_part"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4"]
+shader = ExtResource("3_outline")
+shader_parameter/width = 0.0011
+shader_parameter/max_width = 0.008
+
+[sub_resource type="Environment" id="Environment_5"]
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
+ambient_light_source = 2
+ambient_light_color = Color(0.352941, 0.376471, 0.439216, 1)
+ambient_light_energy = 0.35
+tonemap_mode = 3
+tonemap_exposure = 1
+glow_enabled = true
+glow_intensity = 0.35
+glow_bloom = 0
+glow_hdr_threshold = 1.4
+fog_enabled = true
+fog_light_color = Color(0.054902, 0.054902, 0.070588, 1)
+fog_density = 0.02
+fog_height = 0.4
+fog_height_density = 0.6
+fog_sky_affect = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6"]
+size = Vector2(16, 12)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8"]
+shader = ExtResource("2_toon")
+shader_parameter/tint = Color(0.172549, 0.172549, 0.196078, 1)
+shader_parameter/world_uv = true
+shader_parameter/world_scale = 0.33
+shader_parameter/rim_strength = 0
+shader_parameter/wet = 0.3
+shader_parameter/desaturate = 0.6
+shader_parameter/emission_threshold = 2
+shader_parameter/albedo_tex = ExtResource("7_floor_top_01")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10"]
+shader = ExtResource("2_toon")
+shader_parameter/tint = Color(0.690196, 0.690196, 0.721569, 1)
+shader_parameter/world_uv = true
+shader_parameter/world_scale = 0.55
+shader_parameter/rim_strength = 1.6
+shader_parameter/wet = 0
+shader_parameter/desaturate = 0.6
+shader_parameter/emission_threshold = 1.2
+shader_parameter/albedo_tex = ExtResource("9_wall_01")
+next_pass = SubResource("ShaderMaterial_4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_11"]
+size = Vector3(14, 0.7, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_12"]
+size = Vector3(14.2, 0.08, 0.6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13"]
+shader = ExtResource("2_toon")
+shader_parameter/tint = Color(0.12549, 0.12549, 0.141176, 1)
+shader_parameter/world_uv = false
+shader_parameter/world_scale = 0.25
+shader_parameter/rim_strength = 1.6
+shader_parameter/wet = 0
+shader_parameter/desaturate = 0.6
+shader_parameter/emission_threshold = 2
+next_pass = SubResource("ShaderMaterial_4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_14"]
+size = Vector3(1.2, 1.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_15"]
+size = Vector3(1, 1.6, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_16"]
+shader = ExtResource("2_toon")
+shader_parameter/tint = Color(0.078431, 0.078431, 0.094118, 1)
+shader_parameter/world_uv = false
+shader_parameter/world_scale = 0.25
+shader_parameter/rim_strength = 1.6
+shader_parameter/wet = 0
+shader_parameter/desaturate = 0.6
+shader_parameter/emission_threshold = 2
+next_pass = SubResource("ShaderMaterial_4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_17"]
+size = Vector3(0.05, 0.6, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_18"]
+size = Vector3(0.05, 0.6, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_19"]
+size = Vector3(0.05, 0.6, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_20"]
+size = Vector3(0.05, 0.6, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_21"]
+size = Vector3(0.05, 0.6, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_22"]
+size = Vector3(0.05, 0.6, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_23"]
+size = Vector3(0.05, 0.6, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_24"]
+size = Vector3(14, 0.04, 0.04)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25"]
+shader = ExtResource("2_toon")
+shader_parameter/tint = Color(0.541176, 0.541176, 0.572549, 1)
+shader_parameter/world_uv = false
+shader_parameter/world_scale = 0.25
+shader_parameter/rim_strength = 1.6
+shader_parameter/wet = 0
+shader_parameter/desaturate = 0.6
+shader_parameter/emission_threshold = 1.2
+shader_parameter/albedo_tex = ExtResource("9_wall_01")
+next_pass = SubResource("ShaderMaterial_4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_26"]
+size = Vector3(1.1, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_27"]
+size = Vector3(0.9, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_28"]
+size = Vector3(0.8, 0.6, 0.6)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_29"]
+top_radius = 0.03
+bottom_radius = 0.03
+height = 3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_30"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33"]
+shader = ExtResource("31_cloth")
+shader_parameter/sigil = ExtResource("32_sigil_01")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_34"]
+size = Vector2(0.7, 1.8)
+subdivide_width = 8
+subdivide_depth = 20
+orientation = 2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_35"]
+top_radius = 0.32
+bottom_radius = 0.4
+height = 0.75
+radial_segments = 6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36"]
+shader = ExtResource("2_toon")
+shader_parameter/tint = Color(0.101961, 0.101961, 0.117647, 1)
+shader_parameter/world_uv = false
+shader_parameter/world_scale = 0.25
+shader_parameter/rim_strength = 1.6
+shader_parameter/wet = 0
+shader_parameter/desaturate = 0.6
+shader_parameter/emission_threshold = 2
+next_pass = SubResource("ShaderMaterial_4")
+
+[sub_resource type="TorusMesh" id="TorusMesh_37"]
+inner_radius = 0.33
+outer_radius = 0.36
+rings = 48
+ring_segments = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38"]
+shading_mode = 0
+albedo_color = Color(1, 0.101961, 0.062745, 1)
+emission_enabled = true
+emission = Color(1, 0.101961, 0.062745, 1)
+emission_energy_multiplier = 1.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_40"]
+radius = 0.06
+height = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41"]
+shading_mode = 0
+albedo_color = Color(1, 0.811765, 0.603922, 1)
+emission_enabled = true
+emission = Color(1, 0.690196, 0.501961, 1)
+emission_energy_multiplier = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_43"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 0.1, 3)
+direction = Vector3(0.12, -1, 0)
+spread = 2
+initial_velocity_min = 11
+initial_velocity_max = 14
+gravity = Vector3(0, -9.8, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_44"]
+size = Vector2(0.004, 0.28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45"]
+shading_mode = 0
+transparency = 1
+albedo_color = Color(0.721569, 0.737255, 0.784314, 0.22)
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_46"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.22, 1, 1, 1, 0.22, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_47"]
+gradient = SubResource("Gradient_46")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_48"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 0.1, 2.5)
+direction = Vector3(1, 0, 0)
+spread = 10
+initial_velocity_min = 0.15
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+scale_max = 1.4
+color = Color(0.270588, 0.270588, 0.298039, 1)
+color_ramp = SubResource("GradientTexture1D_47")
+
+[sub_resource type="QuadMesh" id="QuadMesh_49"]
+size = Vector2(3, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_51"]
+emission_shape = 3
+emission_box_extents = Vector3(2.5, 0.1, 1.5)
+direction = Vector3(0, 1, 0)
+spread = 25
+initial_velocity_min = 0.08
+initial_velocity_max = 0.3
+gravity = Vector3(0.05, 0.03, 0)
+color = Color(1, 0.227451, 0.101961, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_52"]
+size = Vector2(0.014, 0.014)
+
+[node name="AvatarStage" type="Node3D" node_paths=PackedStringArray("turntable", "ring", "camera", "featured", "lurker", "lamp", "lightning_light", "spot")]
+script = ExtResource("1_avatar_stage")
+turntable = NodePath("Turntable")
+ring = NodePath("Pedestal/Ring")
+camera = NodePath("Camera")
+featured = NodePath("Pedestal/Hover")
+lurker = NodePath("Lurker")
+lamp = NodePath("Lamp")
+lightning_light = NodePath("Lightning")
+spot = NodePath("Spot")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5")
+
+[node name="Key" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.852525, -0.336724, 0.399773, 0, 0.764842, 0.644218, -0.522687, -0.549211, 0.652047, 0, 0, 0)
+light_color = Color(0.784314, 0.823529, 1, 1)
+light_energy = 2
+shadow_enabled = true
+directional_shadow_max_distance = 20
+
+[node name="RimLeft" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.3, -1.4)
+light_color = Color(1, 0.101961, 0.062745, 1)
+light_energy = 3.2
+omni_range = 3.6
+
+[node name="RimRight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.6, -1.2)
+light_color = Color(1, 0.164706, 0.101961, 1)
+light_energy = 2
+omni_range = 3
+
+[node name="Spot" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.219007, 0.975723, 0, -0.975723, 0.219007, 0, 4.6, 1)
+light_color = Color(0.909804, 0.92549, 1, 1)
+light_energy = 5
+spot_range = 9
+spot_angle = 22
+shadow_enabled = true
+
+[node name="Lightning" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.989992, -0.054955, 0.12998, 0, 0.921061, 0.389418, -0.14112, 0.385521, -0.911843, 0, 0, 0)
+light_color = Color(0.847059, 0.878431, 1, 1)
+light_energy = 0
+
+[node name="Turntable" type="Node3D" parent="."]
+
+[node name="Rooftop" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("PlaneMesh_6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+material_override = SubResource("ShaderMaterial_8")
+
+[node name="Parapet" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_11")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -3.2)
+material_override = SubResource("ShaderMaterial_10")
+
+[node name="ParapetCap" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_12")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74, -3.2)
+material_override = SubResource("ShaderMaterial_13")
+
+[node name="VentL" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_14")
+transform = Transform3D(0.968912, 0, 0.247404, 0, 1, 0, -0.247404, 0, 0.968912, -3.6, 0.6, -2.4)
+material_override = SubResource("ShaderMaterial_10")
+
+[node name="VentR" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_15")
+transform = Transform3D(0.980067, 0, -0.198669, 0, 1, 0, 0.198669, 0, 0.980067, 4.4, 0.8, -2.6)
+material_override = SubResource("ShaderMaterial_10")
+
+[node name="RailPost" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_17")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.08, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="RailPost2" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_18")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.08, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="RailPost3" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_19")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.08, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="RailPost4" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_20")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="RailPost5" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_21")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.08, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="RailPost6" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_22")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.08, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="RailPost7" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_23")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.08, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="Rail" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_24")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, -3.25)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="CaseA" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_26")
+transform = Transform3D(0.988771, 0, 0.149438, 0, 1, 0, -0.149438, 0, 0.988771, 2.25, 0.35, -1.3)
+material_override = SubResource("ShaderMaterial_25")
+
+[node name="CaseB" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_27")
+transform = Transform3D(0.995004, 0, -0.099833, 0, 1, 0, 0.099833, 0, 0.995004, 2.15, 1, -1.35)
+material_override = SubResource("ShaderMaterial_25")
+
+[node name="CaseC" type="MeshInstance3D" parent="Rooftop"]
+mesh = SubResource("BoxMesh_28")
+transform = Transform3D(0.921061, 0, -0.389418, 0, 1, 0, 0.389418, 0, 0.921061, -2.4, 0.3, -1)
+material_override = SubResource("ShaderMaterial_25")
+
+[node name="BannerPole" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_29")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 1.5, -2.9)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="BannerBar" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_30")
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -2.38, 2.95, -2.9)
+material_override = SubResource("ShaderMaterial_16")
+
+[node name="Banner" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_34")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38, 2.03, -2.88)
+material_override = SubResource("ShaderMaterial_33")
+
+[node name="Pedestal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45, 0, 0.1)
+
+[node name="Base" type="MeshInstance3D" parent="Pedestal"]
+mesh = SubResource("CylinderMesh_35")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+material_override = SubResource("ShaderMaterial_36")
+
+[node name="Ring" type="MeshInstance3D" parent="Pedestal"]
+mesh = SubResource("TorusMesh_37")
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.77, 0)
+material_override = SubResource("StandardMaterial3D_38")
+cast_shadow = 0
+
+[node name="Hover" type="Node3D" parent="Pedestal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+
+[node name="Sniper" parent="Pedestal/Hover" instance=ExtResource("39_sniper")]
+transform = Transform3D(0, 0, 1.6, -0.127864, 1.594883, 0, -1.594883, -0.127864, 0, 0, 0, 0)
+
+[node name="EdgeLight" type="OmniLight3D" parent="Pedestal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.9, 0.9)
+light_color = Color(0.87451, 0.901961, 1, 1)
+light_energy = 2.5
+omni_range = 2.2
+
+[node name="Lamp" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2, 1.5, -2.6)
+light_color = Color(1, 0.690196, 0.501961, 1)
+light_energy = 1.8
+omni_range = 4
+
+[node name="LampBulb" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_40")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2, 1.25, -2.95)
+material_override = SubResource("StandardMaterial3D_41")
+cast_shadow = 0
+
+[node name="Lurker" parent="." instance=ExtResource("42_spider")]
+transform = Transform3D(-0.323676, 0, -0.444673, 0, 0.55, 0, 0.444673, 0, -0.323676, 2.9, 0.78, -3.2)
+
+[node name="Rain" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -0.5)
+amount = 700
+lifetime = 0.6
+preprocess = 1
+process_material = SubResource("ParticleProcessMaterial_43")
+draw_pass_1 = SubResource("QuadMesh_44")
+material_override = SubResource("StandardMaterial3D_45")
+cast_shadow = 0
+visibility_aabb = AABB(-6, -8, -4, 12, 10, 8)
+
+[node name="GroundFog" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -1)
+amount = 26
+lifetime = 14
+preprocess = 14
+process_material = SubResource("ParticleProcessMaterial_48")
+draw_pass_1 = SubResource("QuadMesh_49")
+material_override = ExtResource("50_fx_smoke_par")
+cast_shadow = 0
+
+[node name="Cinders" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
+amount = 30
+lifetime = 9
+preprocess = 9
+process_material = SubResource("ParticleProcessMaterial_51")
+draw_pass_1 = SubResource("QuadMesh_52")
+material_override = ExtResource("53_fx_glow_part")
+cast_shadow = 0
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9998, 0.019996, 0, -0.019996, 0.9998, 0, 1.3, 7)
+fov = 30
+current = true

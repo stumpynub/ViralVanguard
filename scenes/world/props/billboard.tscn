@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/props/billboard.gd" id="1_billboard"]
+[ext_resource type="Material" path="res://assets/materials/metal_dark.tres" id="3_metal_dark"]
+[ext_resource type="Shader" path="res://assets/shaders/billboard.gdshader" id="5_billboard"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2"]
+size = Vector3(14.8, 14.8, 0.3)
+resource_local_to_scene = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_4"]
+size = Vector2(14, 14)
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6"]
+resource_local_to_scene = true
+shader = ExtResource("5_billboard")
+
+[sub_resource type="SystemFont" id="SystemFont_7"]
+font_names = PackedStringArray("Impact", "Arial Black", "DejaVu Sans")
+font_weight = 900
+
+[node name="Billboard" type="Node3D"]
+script = ExtResource("1_billboard")
+
+[node name="Frame" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+material_override = ExtResource("3_metal_dark")
+
+[node name="Screen" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_4")
+material_override = SubResource("ShaderMaterial_6")
+cast_shadow = 0
+
+[node name="Title" type="Label3D" parent="."]
+text = "VOLT COLA"
+font = SubResource("SystemFont_7")
+font_size = 96
+outline_size = 24
+horizontal_alignment = 0
+shaded = false
+double_sided = false
+pixel_size = 0.015
+
+[node name="Slogan" type="Label3D" parent="."]
+text = "CHARGE UP"
+font = SubResource("SystemFont_7")
+font_size = 64
+outline_size = 8
+horizontal_alignment = 0
+shaded = false
+double_sided = false
+pixel_size = 0.009
