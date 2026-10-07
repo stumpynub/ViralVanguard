@@ -30,6 +30,14 @@ func _ready() -> void:
 			for k in range(int(r[0]), mini(int(r[1]) + 1, top.get_child_count())):
 				(top.get_child(k) as Node3D).visible = false
 			print("top children: ", top.get_child_count())
+		if arg.begins_with("only="):
+			var keep := {}
+			for q in arg.trim_prefix("only=").split(","):
+				keep[int(q)] = true
+			for mi in w.city.find_children("*", "GeometryInstance3D", true, false):
+				var s: String = mi.name
+				var u := s.rfind("_")
+				mi.visible = u > 0 and keep.has(int(s.substr(u + 1)))
 	for i in 8:
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw

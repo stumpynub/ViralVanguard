@@ -592,7 +592,12 @@ func move(dt: float) -> void:
 			dj = 0
 		var pd = col.pad_at(P.x, P.y, P.z) if padT <= 0 else null
 		if pd != null:
-			V = Vector3(pd[2], pd[3], pd[4])
+			# omnidirectional: the pad keeps its launch height and throw distance but throws you the way you are
+			# running (or facing, when standing still) instead of along a fixed arrow
+			var hv := Vector2(V.x, V.z)
+			var dir := hv.normalized() if hv.length() > 1.5 else Vector2(-sin(yaw), -cos(yaw))
+			var spd := maxf(4.0, Vector2(float(pd[2]), float(pd[4])).length())
+			V = Vector3(dir.x * spd, pd[3], dir.y * spd)
 			padT = .35
 			dj = 1
 			sfx.play("pad")

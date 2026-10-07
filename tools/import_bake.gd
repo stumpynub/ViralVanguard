@@ -7,7 +7,8 @@ extends SceneTree
 ##   godot --headless --path . --script res://tools/import_bake.gd -- <name>
 
 const PI_ := PI
-const FLIP := false     ## reverse triangle winding (three CCW -> Godot)
+const FLIP := true      ## reverse triangle winding: three winds front faces counter-clockwise, Godot clockwise (without
+                        ## this the whole city rendered inside out: far inner walls, mirrored text, no ground plane)
 var base := ""
 var out := ""
 var m: Dictionary
