@@ -54,3 +54,23 @@ v77_debug={
 "type": "int",
 "value": 0
 }
+look_ao={
+"type": "sampler2D",
+"value": ""
+}
+look_ao_rect={
+"type": "vec4",
+"value": Vector4(-130, -107, 260, 214)
+}
+look_refl={
+"type": "sampler2D",
+"value": ""
+}
+look_refl_size={
+"type": "vec2",
+"value": Vector2(-1, -1)
+}
+look_wet={
+"type": "float",
+"value": 1.0
+}

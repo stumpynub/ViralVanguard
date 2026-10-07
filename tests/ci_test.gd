@@ -28,8 +28,8 @@ func _ready() -> void:
 	_check(g.hp > 0, "player alive (hp=%s)" % g.hp)
 	_check(g.EN.size() > 0, "spiders spawned (%d)" % g.EN.size())
 	_check(g.block_nodes.size() == 103, "crate blocks (%d/103)" % g.block_nodes.size())
-	_check(g.doors.size() == 33, "doors (%d/33)" % g.doors.size())
-	_check(g.glass.size() == 77, "glass panes (%d/77)" % g.glass.size())
+	_check(g.doors.size() == 35, "doors (%d/35)" % g.doors.size())
+	_check(g.glass.size() == 71, "glass panes (%d/71)" % g.glass.size())
 	await _secs(1.0)
 	var z0: float = g.P.z
 	g.K[KEY_W] = 1
@@ -54,6 +54,30 @@ func _ready() -> void:
 	g.V = Vector3.ZERO
 	await _secs(1.0)
 	_check(g.P.y > 20.0, "stands on the sky-bridge lobby floor (y=%.2f)" % g.P.y)
+	# roadway: stand on the south viaduct, a junction deck and a footbridge (no holes), then drive the viaduct end to end
+	for spot in [[Vector3(0, 21, 80.3), 19.0, "south viaduct deck"], [Vector3(-62.2, 21, 80.3), 19.0, "south-west junction deck"], [Vector3(7.65, 12, -38.9), 10.0, "Road_4 footbridge deck"]]:
+		g.P = spot[0]
+		g.V = Vector3.ZERO
+		await _secs(1.0)
+		_check(absf(g.P.y - spot[1]) < .3 and g.ground, "stands on the %s (y=%.2f)" % [spot[2], g.P.y])
+	g.P = Vector3(-50, 19.05, 80.3)
+	g.V = Vector3.ZERO
+	g.yaw = -PI / 2                               # face +x, along the viaduct
+	await _secs(.5)
+	g.K[KEY_W] = 1
+	await _secs(16.0)                             # ~6 m/s walking, 90 m of deck
+	g.K[KEY_W] = 0
+	_check(g.P.x > 40 and absf(g.P.y - 19.0) < .3, "walks the south viaduct end to end without hitting a pier or falling through (x=%.1f y=%.2f)" % [g.P.x, g.P.y])
+	# pads are omnidirectional: running east onto a pad throws you east, running west throws you west
+	var pad: Array = g.col.pads[2]
+	for dirx in [1.0, -1.0]:
+		g.P = Vector3(float(pad[0]), g.col.h_at(float(pad[0]), float(pad[1])), float(pad[1]))
+		g.V = Vector3(dirx * 8, 0, 0)
+		g.padT = 0.0
+		for f in 3:                               # process_frame fires before _process, so let the game tick twice
+			await get_tree().process_frame
+		_check(g.V.y > 10 and signf(g.V.x) == signf(dirx) and absf(g.V.z) < absf(g.V.x), "pad throws you the way you run (dir %+d: V=%s)" % [dirx, g.V])
+		await _secs(.2)
 	_done()
 
 

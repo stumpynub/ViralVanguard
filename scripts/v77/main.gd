@@ -753,7 +753,7 @@ func _build_cut() -> void:
 	cut.gui_input.connect(func(ev): if ev is InputEventMouseButton and ev.pressed: _end_cut())
 
 
-const TIPS := ["Stand in a cyan lift beam to ride up to highways, bridges and the Spire deck.", "Blue launch pads throw you onto the sky-bridge roofs.", "Hold jump in mid-air to burn your jetpack (Warden and Ascendant frames).", "Tap 180 to whip round on spiders closing from behind.", "Shoot the base of a tower to drop the blocks above it.", "Grapple near a roof edge to pull yourself up onto the ledge.", "Scoped rifles zoom to 4x when you aim down sights."]
+const TIPS := ["Stand in a cyan lift beam to ride up to highways, bridges and the Spire deck.", "Blue launch pads throw you high in whichever direction you are running: run at a sky-bridge roof or the canopy.", "Hold jump in mid-air to burn your jetpack (Warden and Ascendant frames).", "Tap 180 to whip round on spiders closing from behind.", "Shoot the base of a tower to drop the blocks above it.", "Grapple near a roof edge to pull yourself up onto the ledge.", "Scoped rifles zoom to 4x when you aim down sights."]
 const CUT_DUR := 2.3
 
 func _step_cut(dt: float) -> void:

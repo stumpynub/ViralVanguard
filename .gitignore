@@ -2,7 +2,7 @@
 .godot/
 /android/
 build/
-bake/
+/bake/
 *.tmp
 .atlas/
 __pycache__/
